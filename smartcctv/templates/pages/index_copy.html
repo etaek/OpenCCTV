@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
+        <meta name="description" content="" />
+        <meta name="author" content="" />
+        <title>Dashboard - SB Admin</title>
+        <link href="css/styles.css" rel="stylesheet" />
+        <script src="http://code.jquery.com/jquery-latest.min.js"></script>
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/css/bootstrap.min.css">
+        <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.4.1/js/bootstrap.min.js"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.11.2/js/all.min.js" crossorigin="anonymous"></script>
+        <style>
+        .serchbar{
+          padding:5%;
+        }
+        </style>
+        <script>
+          $( document ).ready(function() {
+             $('.trigger').click(function(){
+              $('#popup_layer, #overlay_t').show();
+              $('#popup_layer').css("top", Math.max(0, $(window).scrollTop() + 100) + "px");
+              // $('#popup_layer').css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+          });
+          $('#overlay_t, .close').click(function(e){
+              e.preventDefault();
+              $('#popup_layer, #overlay_t').hide();
+          });
+      });
+
+      $( document ).ready(function() {
+         $('.trigger2').click(function(){
+          $('#popup_layer2, #overlay_t2').show();
+          $('#popup_layer2').css("top", Math.max(0, $(window).scrollTop() + 100) + "px");
+          // $('#popup_layer2').css("top", Math.max(0, (($(window).height() - $(this).outerHeight()) / 2) + $(window).scrollTop()) + "px");
+      });
+      $('#overlay_t2, .close').click(function(e){
+          e.preventDefault();
+          $('#popup_layer2, #overlay_t2').hide();
+      });
+      });
+          </script>
+      <style media="screen">
+            #overlay_t,#overlay_t2{
+              background-color: #000;
+              bottom: 0;
+              left: 0;
+              opacity: 0.5;
+              filter: alpha(opacity = 50); /* IE7 & 8 */
+              position: fixed;
+              right: 0;
+              top: 0;
+              z-index: 99;
+              display:none;}
+
+            #popup_layer,#popup_layer2{ width:400px;
+              padding: 20%;
+              margin-bottom:30px;
+              background:#fff;
+              border:solid 1px #ccc;
+              color: black;
+              position:absolute;
+              top:50%; left:50%;
+              position: fixed;
+              box-shadow: 0px 1px 20px #333;
+              z-index:100; display:none;}
+
+            .btn-category{
+              background-color: RGBA(0,0,0,0);
+              color: white;
+            }
+      </style>
+    </head>
+    <body class="sb-nav-fixed">
+        <nav class="sb-topnav navbar navbar-expand navbar-dark bg-dark">
+            <a class="navbar-brand" href="index.html">Smart CCTV</a>
+            <!-- Navbar-->
+            <ul class="navbar-nav ml-auto ml-md-0">
+                <li class="nav-item dropdown">
+                    <a class="nav-link dropdown-toggle" id="userDropdown" href="#" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false"><i class="fas fa-user fa-fw"></i></a>
+                    <div class="dropdown-menu dropdown-menu-right" aria-labelledby="userDropdown">
+                        <a class="dropdown-item" href="#">Settings</a><a class="dropdown-item" href="#">Activity Log</a>
+                        <div class="dropdown-divider"></div>
+                        <a class="dropdown-item" href="login.html">Logout</a>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+        <div id="layoutSidenav">
+            <div id="layoutSidenav_nav">
+                <nav class="sb-sidenav accordion sb-sidenav-dark" id="sidenavAccordion">
+                    <div class="sb-sidenav-menu">
+                        <div class="nav">
+                          <!-- Navbar Search-->
+                          <div class="serchbar" style="width:80% !important;">
+                          <form class="d-none d-md-inline-block form-inline ml-auto mr-0 mr-md-3 my-2 my-md-0">
+                              <div class="input-group">
+                                    <input class="form-control input-sm" type="text" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2" />
+                                  <div class="input-group-append">
+                                      <button class="btn btn-primary btn-sm" type="button"><i class="fas fa-search"></i></button>
+                                  </div>
+                              </div>
+                          </form>
+                        </div>
+                            <div class="sb-sidenav-menu-heading">Interface</div>
+                            <a class="nav-link collapsed" href="#" data-toggle="collapse" data-target="#collapseLayouts" aria-expanded="false" aria-controls="collapseLayouts"
+                                ><div class="sb-nav-link-icon"></div>
+                                Layouts
+                                <div class="sb-sidenav-collapse-arrow"><i class="fas fa-angle-down"></i></div
+                            ></a>
+                            <div class="collapse" id="collapseLayouts" aria-labelledby="headingOne" data-parent="#sidenavAccordion">
+                                <nav class="sb-sidenav-menu-nested nav"><a class="nav-link" href="">Static Navigation</a><a class="nav-link" href="">Light Sidenav</a></nav>
+                            </div>
+                        </div>
+                    </div>
+
+                    <div class="sb-sidenav-footer">
+                        <div style="display: inline-block;">
+                          <button type="button" name="button" class="btn btn-default btn-md btn-category trigger">Category
+                          <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                        </button>
+                      </div>
+                      <div style="display: inline-block;">
+                        <button type="button" name="button" class="btn btn-default btn-md btn-category trigger2">Camera
+                        <span class="glyphicon glyphicon-plus" aria-hidden="true"></span>
+                      </button>
+                    </div>
+
+                    <div id="overlay_t"></div>
+                    <div id="popup_layer">Add Category
+                      <div>
+                        <form method="POST" action="index.html">
+                          <input type="text" name="makecate" class=form-control"/>
+                          <button type="button" name="button" class="close">취소</button>
+                        <input type="submit" value="생성" >
+                        </form>
+                    </div>
+                    </div>
+
+                    <div id="overlay_t2"></div>
+                    <div id="popup_layer2">Add Camera
+                      <div>
+                        <div class="dropdown">
+                          <button id="selected-category" class="btn btn-primary dropdown-toggle" type="button" data-toggle="dropdown">Dropdown Example
+                            <span class="caret"></span></button>
+                            <ul id="categorylist" class="dropdown-menu">
+                              <li><a href="#">branch_1</a></li>
+                              <li><a href="#">branch_2</a></li>
+                              <!-- <li><a href="#">JavaScript</a></li> -->
+                            </ul>
+                          </div>
+                          <br />
+                          <form method="POST" action="make.php">
+                            <input type="text" name="regcamera" class=form-control"/>
+                          </form>
+                        <button type="button" name="button" class="close">취소</button>
+                        <input type="submit" value="생성" >
+                      </div>
+                    </div>
+
+
+                    <script>
+                    $('#categorylist li > a').on('click', function() {
+                    // 버튼에 선택된 항목 텍스트 넣기
+                    $('#selected-category').text($(this).text());
+
+                    // 선택된 항목 값(value) 얻기
+                    //alert($(this).attr('value'));
+                  });
+                    </script>
+
+                    </div>
+                </nav>
+            </div>
+            <div id="layoutSidenav_content">
+                <main>
+                    <div class="container-fluid">
+                        <h1 class="mt-4">Dashboard</h1>
+                        <ol class="breadcrumb mb-4">
+                            <li class="breadcrumb-item active">Dashboard</li>
+                        </ol>
+                        <div class="row">
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-primary text-white mb-4">
+                                    <div class="card-body">Primary Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-warning text-white mb-4">
+                                    <div class="card-body">Warning Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-success text-white mb-4">
+                                    <div class="card-body">Success Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="col-xl-3 col-md-6">
+                                <div class="card bg-danger text-white mb-4">
+                                    <div class="card-body">Danger Card</div>
+                                    <div class="card-footer d-flex align-items-center justify-content-between">
+                                        <a class="small text-white stretched-link" href="#">View Details</a>
+                                        <div class="small text-white"><i class="fas fa-angle-right"></i></div>
+                                    </div>
+                                </div>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-chart-area mr-1"></i>Area Chart Example</div>
+                                    <div class="card-body"><canvas id="myAreaChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                            <div class="col-xl-6">
+                                <div class="card mb-4">
+                                    <div class="card-header"><i class="fas fa-chart-bar mr-1"></i>Bar Chart Example</div>
+                                    <div class="card-body"><canvas id="myBarChart" width="100%" height="40"></canvas></div>
+                                </div>
+                            </div>
+                        </div>
+                </main>
+                <footer class="py-4 bg-light mt-auto">
+                    <div class="container-fluid">
+                        <div class="d-flex align-items-center justify-content-between small">
+                            <div class="text-muted">Copyright &copy; Your Website 2019</div>
+                            <div>
+                                <a href="#">Privacy Policy</a>
+                                &middot;
+                                <a href="#">Terms &amp; Conditions</a>
+                            </div>
+                        </div>
+                    </div>
+                </footer>
+            </div>
+        </div>
+        <script src="https://code.jquery.com/jquery-3.4.1.min.js" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.bundle.min.js" crossorigin="anonymous"></script>
+        <script src="js/scripts.js"></script>
+
+    </body>
+</html>
