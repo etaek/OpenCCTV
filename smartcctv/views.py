@@ -5,8 +5,9 @@ from django.http import HttpResponse
 from django.contrib.auth.models import User
 from django.contrib import auth
 from django.contrib.auth import login, authenticate
-from .models import SmartcctvPeople
-
+from django.core import serializers
+from .models import PeopleCount
+import json
 # Create your views here.
 
 def index(request):
@@ -21,6 +22,7 @@ def index(request):
     
  #   return render(request,'pages/login.html',{'form':form})
 
+# 로그인
 def login2(request):
 	if request.method == "POST":
 		username=request.POST.get("username")
@@ -41,7 +43,15 @@ def logout(request):
 	return redirect('home')
 
 def report(request):
-	return render(request, 'pages/report.html')
+#	json_data=serializers.serialize("json",PeopleCount.objects.all())
+#	people=PeopleCount.objects.all()
+	people=PeopleCount.objects.filter(date__contains='2020')
+#	people=list(people.values())
+	#context_dict['people_list']=json.dumps(people)
+	#for peo in people:
+	#	print(peo.date)
+	
+	return render(request, 'pages/report.html',{'people_list':people})
 
 def index_login(request):
 	return render(request, 'pages/index_login.html')
@@ -64,6 +74,7 @@ def index_login(request):
 #		return render(request, 'pages/register.html')
 
 
+# 회원가입
 def register(request):
 	if request.method=='POST':
 		if request.POST.get("inputPassword")==request.POST.get("inputConfirmPassword"):
@@ -80,7 +91,7 @@ def register(request):
 
 def people(request):
 	template_name='pages/examples.html'
-	people_num=SmartcctvPeople.objects.all()
+	people_num=PeopleCount.objects.all()
 	return render(request, template_name, {'people_num':people_num})
 
 

@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import SmartcctvPeople
+from .models import PeopleCount
 
-admin.site.register(SmartcctvPeople)
+admin.site.register(PeopleCount)
 

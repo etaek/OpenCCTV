@@ -24,9 +24,9 @@
                                     <div class="card-body">
                                         <form method="POST" action="{% url 'login2' %}" >
 										{% csrf_token %}
-                                            <div class="form-group"><label cl        ass="small mb-1" for="{{ form.username.id_for_label }}" >UserID</label><input name="username" class="form-control py-4" id="username" type="text" placeholder="Enter UserID" {{ form.username }} /></div>
+                                            <div class="form-group"><label cl        ass="small mb-1" for="{{ form.username.id_for_label }}" >UserID</label><input name="username" class="form-control py-4" id="username" type="text" placeholder="Enter UserID"  /></div>
 <!--<div class="form-group"><label class="small mb-1" for="{{ form.email.id_for_label }}" >Email</label><input class="form-control py-4" id="inputEmailAddress" type="email" placeholder="Enter email address" {{ form.email }} /></div>-->
-                                            <div class="form-group"><label class="small mb-1" for="{{ form.password.id_for_label }}">Password</label><input name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password" {{ form.password }} /></div>
+                                            <div class="form-group"><label class="small mb-1" for="{{ form.password.id_for_label }}">Password</label><input name="password" class="form-control py-4" id="inputPassword" type="password" placeholder="Enter password"  /></div>
                                             <div class="form-group">
                                                 <div class="custom-control custom-checkbox"><input class="custom-control-input" id="rememberPasswordCheck" type="checkbox" /><label class="custom-control-label" for="rememberPasswordCheck">Remember password</label></div>
                                             </div>

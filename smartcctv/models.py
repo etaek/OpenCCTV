@@ -24,12 +24,14 @@ class heatmap(models.Model):
 	best=models.IntegerField(default=0)
 	worst=models.IntegerField(default=0)
 
-class SmartcctvPeople(models.Model):
+# people counting DB 
+class PeopleCount(models.Model):
     cid = models.IntegerField()
     up = models.IntegerField()
     down = models.IntegerField()
+    date = models.CharField(max_length=50)
 
     class Meta:
         managed = False
-        db_table = 'smartcctv_people'
+        db_table = 'people_count'
 

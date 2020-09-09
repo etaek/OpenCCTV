@@ -40,6 +40,7 @@ INSTALLED_APPS = [
     'smartcctv.apps.SmartcctvConfig',
 
     'rest_framework',
+    
     'rest_framework_swagger',
 
 	'rest_framework.authtoken',

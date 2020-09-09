@@ -15,8 +15,8 @@ cnt_up = 0
 cnt_down = 0
 
 #cap = cv.VideoCapture('TestVideo.avi')
-cap = cv.VideoCapture(-1)
-#cap=cv.VideoCapture("http://192.168.0.3:8091/?action=stream");
+#cap = cv.VideoCapture(0)
+cap=cv.VideoCapture("http://172.30.1.13:8091/?action=stream");
 for i in range(19):
     print(i, cap.get(i))
 
@@ -195,22 +195,10 @@ while (cap.isOpened()):
 #################
 
 
-conn = pymysql.connect(host='localhost', user='ahyun', password='ahyun1000', db='cctv')
-try:
-	print(1)
-	cur=conn.cursor()
-	query = "INSERT INTO smartcctv_people VALUES(%s,%s,%s,%s)"
-	cur.execute(query,(0,356,cnt_up,cnt_down))
-	conn.commit()
-finally:
-	cur.close()
-	conn.close()
-
-
 log.flush()
 log.close()
 cap.release()
-#cv.destroyAllWindows()
+cv.destroyAllWindows()
 
 
 
