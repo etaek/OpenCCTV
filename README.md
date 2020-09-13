@@ -1,5 +1,4 @@
-# BestSeller(SpringBoot + JPA + MySQL)
-* 기존 JSP, MVC 패턴을 이용해서 만든 프로젝트를 스프링 환경에서 재구성.
+# 지능형 Open CCTV
 
 ## 개발 환경
 * 개발환경
